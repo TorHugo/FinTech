@@ -1,11 +1,10 @@
 package entity;
 
-import interfaces.UsuarioInterface;
+import repository.UsuarioInterface;
 
 import java.util.Scanner;
 
 public class Usuario implements UsuarioInterface {
-    Scanner sc = new Scanner(System.in);
     private Long id;
     private String nome;
     private String email;
@@ -64,17 +63,47 @@ public class Usuario implements UsuarioInterface {
     }
 
     @Override
-    public void cadastrarUsuario() {
-
+    public void consultarUsuario(Long id) {
+        if (id.equals(this.getId())) {
+            System.out.println("\n----- Perfil -----");
+            System.out.println("\n\t.Nome: " + this.getNome());
+            System.out.println("\t.E-mail: " + this.getEmail());
+            System.out.println("\t.Senha: " + this.getSenha());
+            System.out.println("\t.Telefone: " + this.getTelefone());
+            System.out.println("\n----- Fim da Consulta de Perfil -----");
+        }
     }
 
     @Override
-    public void editarUsuario(Usuario usuario) {
+    public Usuario editarUsuario(Long id) {
+        if (id.equals(this.getId())){
+            System.out.println("\n----- Editar Perfil -----");
+            System.out.println("\n\t.Antigo nome: " + this.getNome());
 
+            this.setNome(null);
+            this.setNome("Victor Hugo");
+            System.out.println("\t.Novo nome: " + this.getNome());
+
+            System.out.println("\n----- Fim da Edicao de Perfil -----");
+            return new Usuario();
+        } else {
+            System.out.println("\n----- Usuario nao encontrado! -----");
+        }
+
+        return new Usuario(null, null, null, null, null);
     }
 
     @Override
-    public void apagarUsuario(Usuario usuario) {
-
+    public void apagarUsuario(Long id) {
+        if (id.equals(this.getId())){
+            System.out.println("\n----- Excluindo Perfil -----");
+            this.setNome(null);
+            this.setEmail(null);
+            this.setSenha(null);
+            this.setTelefone(null);
+            System.out.println("\n----- Perfil excluido com sucesso! Id: {"+ id +"} -----");
+        } else {
+            System.out.println("\n----- Usuario nao encontrado! -----");
+        }
     }
 }
