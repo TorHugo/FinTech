@@ -3,6 +3,7 @@ package entity;
 import enums.EnumTipoSaldo;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class NovaCategoriaSaldo extends Saldo{
     private Long id;
@@ -10,12 +11,8 @@ public class NovaCategoriaSaldo extends Saldo{
     private String descCategoria;
     private String corCategoria;
 
-    public NovaCategoriaSaldo(Long id, Float valor, String descValor, LocalDate dataValor, EnumTipoSaldo tipoSaldo, Long id1, String nmCategoria, String descCategoria, String corCategoria) {
-        super(id, valor, descValor, dataValor, tipoSaldo);
-        this.id = id1;
-        this.nmCategoria = nmCategoria;
-        this.descCategoria = descCategoria;
-        this.corCategoria = corCategoria;
+    public NovaCategoriaSaldo(Long idUsuario, Float valor, String descValor, String dataValor, EnumTipoSaldo tipoSaldo, Usuario usuario) {
+        super(idUsuario, valor, descValor, dataValor, tipoSaldo, usuario);
     }
 
     public Long getId() {

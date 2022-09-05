@@ -4,13 +4,23 @@ import enums.EnumTipoCategoria;
 import enums.EnumTipoSaldo;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 public class CategoriaSaldo extends Saldo{
     private Long id;
     private EnumTipoCategoria tipoCategoria;
 
-    public CategoriaSaldo(Long id, Float valor, String descValor, LocalDate dataValor, EnumTipoSaldo tipoSaldo, Long id1, EnumTipoCategoria tipoCategoria) {
-        super(id, valor, descValor, dataValor, tipoSaldo);
+    public CategoriaSaldo(
+                            Long idSaldo,
+                            Float valor,
+                            String descValor,
+                            String dataValor,
+                            EnumTipoSaldo tipoSaldo,
+                            Usuario usuario,
+                            Long id1,
+                            EnumTipoCategoria tipoCategoria
+                            ) {
+        super(idSaldo, valor, descValor, dataValor, tipoSaldo, usuario);
         this.id = id1;
         this.tipoCategoria = tipoCategoria;
     }

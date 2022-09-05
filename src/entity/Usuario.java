@@ -4,6 +4,7 @@ import repository.UsuarioInterface;
 
 import java.util.Scanner;
 
+
 public class Usuario implements UsuarioInterface {
     private Long id;
     private String nome;
@@ -62,6 +63,7 @@ public class Usuario implements UsuarioInterface {
         this.telefone = telefone;
     }
 
+
     @Override
     public void consultarUsuario(Long id) {
         if (id.equals(this.getId())) {
@@ -96,14 +98,14 @@ public class Usuario implements UsuarioInterface {
     @Override
     public void apagarUsuario(Long id) {
         if (id.equals(this.getId())){
-            System.out.println("\n----- Excluindo Perfil -----");
+            System.out.println("\n\n\n\n\n----- Excluindo Perfil -----");
             this.setNome(null);
             this.setEmail(null);
             this.setSenha(null);
             this.setTelefone(null);
             System.out.println("\n----- Perfil excluido com sucesso! Id: {"+ id +"} -----");
         } else {
-            System.out.println("\n----- Usuario nao encontrado! -----");
+            System.out.println("\n----- Usuario nao encontrado! -----\n\n\n\n\n");
         }
     }
 }
